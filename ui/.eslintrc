@@ -1,0 +1,15 @@
+{
+    "extends": ["@gravity-ui/eslint-config", "@gravity-ui/eslint-config/prettier"],
+    "root": true,
+    "parserOptions": {
+        "project": ["./tsconfig.json"]
+    },
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfFile": "auto"
+            }
+        ]
+    }
+}

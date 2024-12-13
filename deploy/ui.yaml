@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krr-ui
+  labels:
+    app: krr-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krr-ui
+  template:
+    metadata:
+      labels:
+        app: krr-ui
+    spec:
+      containers:
+      - name: krr-ui
+        image: krr-ui
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: krr-ui
+  labels:
+    app: krr-ui
+spec:
+  selector:
+    app: krr-ui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
